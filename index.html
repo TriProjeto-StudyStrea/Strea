@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+
     <title>Formulário de Cadastro</title>
 </head>
 <body>
     <div class="container">
         <div class="form-image">
-            <img src="assets/img/study.png" alt="">
+            <img src="/img/study.png" alt="">
         </div>
 
         <div class="form">
-            <form action="#">
+            <form action="continue-button" method="POST">
                 <div class="form-header">
                     <div class="title">
                         <h1>Cadastre-se</h1>
@@ -49,10 +50,20 @@
                     </div>
                 </div>
                 <div class="continue-button">
-                    <button><a href="#">Continuar</a></button>
+                    <button type="submit">Continuar</button>
                 </div>
             </form> 
         </div>
     </div>
+     <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const alertMessage = urlParams.get('alert');
+
+        if (alertMessage) {
+            alert(decodeURI(alertMessage));
+        }
+     </script>
+
 </body>
 </html>
