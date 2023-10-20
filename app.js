@@ -1,4 +1,5 @@
 const express = require('express');
+<<<<<<< HEAD
 const bodyParser = require('body-parser');
 const path = require('path');
 const Dado = require('./models/Dado');
@@ -48,4 +49,19 @@ app.post("/continue-button", function (req, res) {
 
 app.listen(PORT, () => {
     console.log(`Servidor iniciado na porta ${PORT}: http://localhost:${PORT}`);
+=======
+const app = express();
+
+const db=require('./models/db');
+app.get("/",async (req,res)=>{
+    res.send("Página inicial");
+});
+app.post("/cadastrar",async (req,res)=>{
+    res.send("Página cadastrar");
+});
+
+app.listen(8080,()=>{
+    console.log("Servidor iniciado na porta 8080: http://localhost:8080");
+    
+>>>>>>> ed80e40f476531d2066770f239b82211eddfa610
 });
