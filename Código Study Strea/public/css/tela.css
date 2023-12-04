@@ -78,11 +78,11 @@ body {
 }
 
 .conteudoPrincipal-cursos-link:nth-child(even) a:before {
-	background: url(../img/logos/student-svgrepo-com.svg) no-repeat;
+	background: url(/img/student-svgrepo-com.svg) no-repeat;
 }
 
 .conteudoPrincipal-cursos-link:nth-child(odd) a:before {
-	background: url(../img/logos/student-svgrepo-com\ \(2\).svg) no-repeat;
+	background: url(/img/student-svgrepo-com\ \(2\).svg) no-repeat;
 	
 }
 

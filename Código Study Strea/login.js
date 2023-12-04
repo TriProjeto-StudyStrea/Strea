@@ -4,12 +4,12 @@ const path = require('path');
 const mysql = require('mysql2/promise');
 
 const app = express();
-const PORT = 8080;
+const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(express.static('public')); // Servir arquivos estáticos (CSS, imagens, etc.)
+app.use(express.static('public')); 
 
 
 const dbConfig = {
@@ -31,7 +31,7 @@ app.get("/login", (req, res) => {
   res.sendFile(loginPath);
 });
 
-// Rota de login
+
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 

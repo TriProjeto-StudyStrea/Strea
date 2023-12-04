@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trilha de conteúdos</title>
+    <link rel="stylesheet" href="/css/conteudos.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Trilha de conteúdos</h1>
+        <form id="itemForm">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" required>
+            <label for="conteudo">Conteúdo:</label>
+            <textarea id="conteudo" required></textarea>
+            <button id="submitBtn" type="submit">Adicionar</button>
+        </form>
+        <table id="itemList">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Conteúdo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Item</h2>
+            <input type="text" id="editTitulo" required>
+            <textarea id="editConteudo" required></textarea>
+            <button id="saveEditBtn">Salvar</button>
+        </div>
+    </div>
+
+    <div id="posts" style="display: none;"></div> 
+    <script>
+        
+        let posts = [];
+
+       
+        function exibirPosts() {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
+            posts.forEach((post, index) => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `
+                    <td>${post.titulo}</td>
+                    <td>${post.conteudo}</td>
+                    <td>
+                        <button onclick="editarPost(${index})">Editar</button>
+                        <button onclick="excluirPost(${index})">Excluir</button>
+                    </td>
+                `;
+            });
+        }
+
+       
+        document.getElementById('itemForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const titulo = document.getElementById('titulo').value;
+            const conteudo = document.getElementById('conteudo').value;
+
+            
+            posts.push({ titulo, conteudo });
+
+           
+            exibirPosts();
+
+           
+            document.getElementById('itemForm').reset();
+        });
+
+        
+        function editarPost(index) {
+            const post = posts[index];
+            document.getElementById('editTitulo').value = post.titulo;
+            document.getElementById('editConteudo').value = post.conteudo;
+
+            
+        }
+
+        
+        function excluirPost(index) {
+            posts.splice(index, 1); 
+            exibirPosts(); 
+        }
+
+        
+        window.addEventListener('DOMContentLoaded', exibirPosts);
+    </script>
+</body>
+</html>
+

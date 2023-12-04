@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #cf9ecf;
+            color: #8b008b;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 550px;
+            width: 450px;
+            background-color: #f1e9f1;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .profile {
+            text-align: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            margin-bottom: 15px;
+            border: 3px solid #8b008b;
+            cursor: pointer;
+        }
+
+        .profile input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .profile h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .profile p {
+            margin: 5px 0 15px;
+            font-size: 16px;
+        }
+
+        .edit-form {
+            text-align: left;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .edit-form input[type="text"],
+        .edit-form input[type="password"] {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #a88282;
+            border-radius: 4px;
+        }
+
+        .edit-form input[type="submit"] {
+            width: 100%;
+            background-color: #8b008b;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <input type="file" id="img-upload" accept="image/*">
+            <img id="profile-img" src="https://via.placeholder.com/150" alt="Foto do Perfil">
+            <h2>Nome do Usuário</h2>
+            <p>Configuração Usuário</p>
+            <div class="edit-form">
+                <form>
+                    <input type="text" placeholder="Novo nome">
+                    <input type="password" placeholder="Senha">
+                    <input type="password" placeholder="Confirmar senha">
+                    <input type="text" placeholder="Digite seu número">
+                    <input type="submit" value="Salvar Alterações">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('img-upload').addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profile-img').setAttribute('src', e.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById('profile-img').addEventListener('click', function () {
+            document.getElementById('img-upload').click();
+        });
+    </script>
+</body>
+</html>

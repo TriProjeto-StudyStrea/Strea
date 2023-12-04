@@ -1,0 +1,60 @@
+body {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #eec4e8;
+  }
+  
+  .container {
+    background-color: rgb(238, 188, 221);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgb(116, 86, 185);
+    text-align: left;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  h2 {
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+  
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label, input {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  input[type="password"] {
+    padding: 12px;
+    border: 1px solid #a53492;
+    border-radius: 4px;
+  }
+  
+  input[type="submit"] {
+    padding: 12px 20px;
+    background-color: #a53492;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: rgb(228, 139, 213);
+  }
+  
+  
